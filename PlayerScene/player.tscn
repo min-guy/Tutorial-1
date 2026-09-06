@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://f2t1f8onwwas"]
+
+[ext_resource type="Script" uid="uid://u81b3xp3usae" path="res://PlayerScene/Player.cs" id="1_4flbx"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4rkw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wijl4"]
+albedo_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
+roughness = 0.75
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3x3eq"]
+
+[node name="Player" type="CharacterBody3D" unique_id=534980744]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=416577086]
+mesh = SubResource("SphereMesh_4rkw1")
+surface_material_override/0 = SubResource("StandardMaterial3D_wijl4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=304351781]
+shape = SubResource("SphereShape3D_3x3eq")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1746351804]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1, 1)

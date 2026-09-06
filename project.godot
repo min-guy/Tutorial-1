@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="Tutorial"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://c5h77c6oq7xjr"
+config/features=PackedStringArray("4.7", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
