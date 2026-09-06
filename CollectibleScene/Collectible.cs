@@ -6,7 +6,7 @@ public partial class Collectible : Area3D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		AreaEntered += OnAreaEnter;
+		BodyEntered += OnBodyEnter;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,7 +16,7 @@ public partial class Collectible : Area3D
 		Rotate(new Vector3(0, 0, 1), (float)delta);
 	}
 
-	public void OnAreaEnter(Area3D area)
+	public void OnBodyEnter(Node3D node)
 	{
 		GD.Print("Collected Collectible!");
 	}
