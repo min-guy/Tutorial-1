@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f2t1f8onwwas"]
 
 [ext_resource type="Script" uid="uid://u81b3xp3usae" path="res://PlayerScene/Player.cs" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://p1jk1rq0xntr" path="res://PlayerScene/CameraController.cs" id="2_2qdwb"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_4rkw1"]
 
@@ -22,3 +23,4 @@ shape = SubResource("SphereShape3D_3x3eq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1746351804]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 1, 1)
+script = ExtResource("2_2qdwb")
