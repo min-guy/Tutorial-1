@@ -5,6 +5,15 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
 size = Vector3(20, 1, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpywq"]
+size = Vector3(20, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4rkw1"]
+size = Vector3(1, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xfk87"]
+size = Vector3(20, 1, 1)
+
 [node name="GameScene" type="Node3D" unique_id=585681017]
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1217775058]
@@ -25,3 +34,39 @@ light_indirect_energy = 3.0
 light_volumetric_fog_energy = 5.0
 light_angular_distance = 25.0
 light_specular = 5.0
+
+[node name="NorthWall" type="StaticBody3D" parent="." unique_id=937100690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NorthWall" unique_id=975626146]
+size = Vector3(20, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall" unique_id=327272326]
+shape = SubResource("BoxShape3D_tpywq")
+
+[node name="EastWall" type="StaticBody3D" parent="." unique_id=1776997372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall" unique_id=2126627985]
+shape = SubResource("BoxShape3D_4rkw1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=51626220]
+size = Vector3(1, 1, 20)
+
+[node name="WestWall" type="StaticBody3D" parent="." unique_id=2023942417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall" unique_id=1996526310]
+shape = SubResource("BoxShape3D_4rkw1")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=1816727057]
+size = Vector3(1, 1, 20)
+
+[node name="SouthWall" type="StaticBody3D" parent="." unique_id=1453454022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall" unique_id=161805584]
+shape = SubResource("BoxShape3D_xfk87")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="SouthWall" unique_id=1885570179]
+size = Vector3(20, 1, 1)
