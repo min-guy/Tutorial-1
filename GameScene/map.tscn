@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://PlayerScene/player.tscn" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://CollectibleScene/collectible.tscn" id="2_sfwum"]
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_waroo"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
 size = Vector3(20, 1, 20)
 
@@ -18,15 +20,17 @@ size = Vector3(20, 1, 1)
 
 [node name="GameScene" type="Node3D" unique_id=585681017]
 
-[node name="Control" parent="." unique_id=905788983 node_paths=PackedStringArray("player") instance=ExtResource("1_6rb1g")]
-player = NodePath("../Player")
+[node name="Control" parent="." unique_id=905788983 instance=ExtResource("1_6rb1g")]
 
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1217775058]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1951427355]
+navigation_mesh = SubResource("NavigationMesh_waroo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1744408137]
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1217775058]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor" unique_id=1744408137]
 shape = SubResource("BoxShape3D_3x3eq")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=112626225]
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Floor" unique_id=112626225]
 size = Vector3(20, 1, 20)
 
 [node name="Player" parent="." unique_id=534980744 instance=ExtResource("1_c7s6e")]
