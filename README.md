@@ -1,1 +1,1 @@
-CSCI 4980 Tutorial 1 on godot
+Tutorial 1 on godot
