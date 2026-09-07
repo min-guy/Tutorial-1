@@ -8,13 +8,12 @@ public partial class Player : CharacterBody3D
 
 	private Label3D win_msg;
 
-	[Signal]
-	public delegate void OnHitCollectibleEventHandler(); 
-
 	public override void _Ready()
 	{
 		win_msg = GetNode<Label3D>(new NodePath("WinMsg"));
 		win_msg.Visible = false;	
+
+		GameSignals.Instance.Connect(GameSignals.SignalName.GameWin, Callable.From(OnWin));
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -61,7 +60,12 @@ public partial class Player : CharacterBody3D
 		}
 	}
 
-	public void OnBodyEntered(Node3D node)
+	private void OnWin()
+	{
+		win_msg.Visible = true;
+	}
+
+	private void OnBodyEntered(Node3D node)
 	{
 		// Exit earlier if not collectible
 		if (!node.IsInGroup("Collectible")) return;
@@ -71,6 +75,6 @@ public partial class Player : CharacterBody3D
 		node.Visible = false;
 		node.QueueFree();
 
-		EmitSignal(SignalName.OnHitCollectible);
+		GameSignals.Instance.EmitSignal(GameSignals.SignalName.OnHitCollectible);
 	}
 }
