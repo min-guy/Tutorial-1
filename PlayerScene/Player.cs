@@ -8,6 +8,9 @@ public partial class Player : CharacterBody3D
 
 	private Label3D win_msg;
 
+	[Signal]
+	public delegate void OnHitCollectibleEventHandler(); 
+
 	public override void _Ready()
 	{
 		win_msg = GetNode<Label3D>(new NodePath("WinMsg"));
@@ -53,7 +56,6 @@ public partial class Player : CharacterBody3D
 
 			if (obj is Node3D node)
 			{
-				GD.Print(node.GetType());
 				OnBodyEntered(node);
 			}
 		}
@@ -67,6 +69,8 @@ public partial class Player : CharacterBody3D
 		GD.Print("Hit collectible!");
 
 		node.Visible = false;
-		node.SetProcess(false);
+		node.QueueFree();
+
+		EmitSignal(SignalName.OnHitCollectible);
 	}
 }

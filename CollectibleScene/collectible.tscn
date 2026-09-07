@@ -9,9 +9,8 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnji1"]
 albedo_color = Color(0.714888, 0.7333646, 0.066278294, 1)
 
-[node name="Collectible" type="Area3D" unique_id=713635909 groups=["Collectible"]]
+[node name="Collectible" type="StaticBody3D" unique_id=1063406950 groups=["Collectible"]]
 disable_mode = 1
-collision_layer = 0
 script = ExtResource("1_jxrci")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=149950613]
