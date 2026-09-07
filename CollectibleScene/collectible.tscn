@@ -4,14 +4,19 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gnji1"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mrrlb"]
-albedo_color = Color(0.88103914, 0.76455843, 0.16898596, 1)
+[sub_resource type="BoxMesh" id="BoxMesh_mrrlb"]
 
-[node name="Collectible" type="Area3D" unique_id=1785106663]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnji1"]
+albedo_color = Color(0.714888, 0.7333646, 0.066278294, 1)
+
+[node name="Collectible" type="Area3D" unique_id=713635909 groups=["Collectible"]]
+disable_mode = 1
+collision_layer = 0
 script = ExtResource("1_jxrci")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=149950613]
 shape = SubResource("BoxShape3D_gnji1")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=810055302]
-material = SubResource("StandardMaterial3D_mrrlb")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=328155131]
+mesh = SubResource("BoxMesh_mrrlb")
+surface_material_override/0 = SubResource("StandardMaterial3D_gnji1")

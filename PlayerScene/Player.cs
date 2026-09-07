@@ -6,6 +6,14 @@ public partial class Player : CharacterBody3D
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
 
+	private Label3D win_msg;
+
+	public override void _Ready()
+	{
+		win_msg = GetNode<Label3D>(new NodePath("WinMsg"));
+		win_msg.Visible = false;	
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
@@ -38,6 +46,27 @@ public partial class Player : CharacterBody3D
 		}
 
 		Velocity = velocity;
-		MoveAndSlide();
+		if (MoveAndSlide())
+		{
+			var collisionShape = GetLastSlideCollision();
+			var obj = collisionShape.GetCollider();
+
+			if (obj is Node3D node)
+			{
+				GD.Print(node.GetType());
+				OnBodyEntered(node);
+			}
+		}
+	}
+
+	public void OnBodyEntered(Node3D node)
+	{
+		// Exit earlier if not collectible
+		if (!node.IsInGroup("Collectible")) return;
+
+		GD.Print("Hit collectible!");
+
+		node.Visible = false;
+		node.SetProcess(false);
 	}
 }
