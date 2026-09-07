@@ -5,6 +5,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_3x3eq"]
 size = Vector3(1, 2, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgrul"]
+albedo_color = Color(0.9225843, 0.2123574, 0.26916745, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
 size = Vector3(1, 2, 1)
 
@@ -13,6 +16,7 @@ script = ExtResource("1_51xhc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=537670922]
 mesh = SubResource("BoxMesh_3x3eq")
+surface_material_override/0 = SubResource("StandardMaterial3D_fgrul")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1392717472]
 shape = SubResource("BoxShape3D_3x3eq")

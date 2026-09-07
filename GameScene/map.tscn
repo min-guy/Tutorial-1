@@ -3,14 +3,32 @@
 [ext_resource type="PackedScene" uid="uid://ddr3rqs1fho6j" path="res://UIScene/Counter.tscn" id="1_6rb1g"]
 [ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://PlayerScene/player.tscn" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://CollectibleScene/collectible.tscn" id="2_sfwum"]
+[ext_resource type="Material" uid="uid://2jbwjxjxwtxu" path="res://GameScene/wall_material.tres" id="3_qbbks"]
 [ext_resource type="PackedScene" uid="uid://c25ay6wm3y54p" path="res://AIEnemyScene/Enemy.tscn" id="4_fgrul"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_waroo"]
-vertices = PackedVector3Array(-9.5, 0.88368225, 0, -6.5, 0.88368225, 0, -6.25, 0.88368225, -1, -9.5, 0.88368225, -9.5, -4, 0.88368225, -1, 9.5, 0.88368225, 0, 9.5, 0.88368225, -9.5, -3.75, 0.88368225, 0, -6.25, 0.88368225, 1, -9.5, 0.88368225, 9.5, -4, 0.88368225, 1, 9.5, 0.88368225, 9.5)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 3), PackedInt32Array(4, 2, 3), PackedInt32Array(4, 5, 7), PackedInt32Array(1, 8, 0), PackedInt32Array(0, 8, 9), PackedInt32Array(5, 11, 10), PackedInt32Array(10, 11, 9), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 7, 5)]
+vertices = PackedVector3Array(-9.75, 0.88368225, -5.25, -9.75, 0.88368225, -0.75, -6, 0.88368225, -0.75, -5, 0.88368225, -9.75, -9.75, 0.88368225, -9.75, 9.75, 0.88368225, -5.25, 9.75, 0.88368225, -9.75, 4.75, 0.88368225, -9.75, -4, 0.88368225, -0.75, 0, 0.88368225, -9.75, 9.75, 0.88368225, -0.75, -6, 0.88368225, 0.75, -9.75, 0.88368225, 2, -1.75, 1.3836823, 4.75, 9.75, 0.88368225, 4.75, 9.75, 0.88368225, 2, -9.75, 0.88368225, 4.75, -2, 0.88368225, 4.75, -4, 0.88368225, 0.75, -4.25, 5.1336823, -0.25, -4.25, 5.1336823, 0.25, -3.5, 4.8836823, 0.25, -3.5, 4.8836823, -0.25, -2.5, 0.88368225, 5.75, -9.75, 0.88368225, 6.25, 0.5, 1.3836823, 6.25, 9.75, 0.88368225, 6.25, -2, 1.3836823, 6.25, -2, 1.6336823, 5.75, 0, 1.6336823, 6.25, -1.5, 1.6336823, 6.25, -1.25, 1.6336823, 6.75, -0.5, 1.6336823, 6.75, -9.75, 0.88368225, 7.5, -1, 0.88368225, 7.5, -0.75, 0.88368225, 7.5, 9.75, 0.88368225, 7.5, -0.25, 1.3836823, 7, -9.75, 0.88368225, 9.75, -5, 0.88368225, 9.75, 0, 0.88368225, 9.75, 4.75, 0.88368225, 9.75, 9.75, 0.88368225, 9.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 4, 3), PackedInt32Array(7, 6, 5), PackedInt32Array(2, 0, 8), PackedInt32Array(8, 0, 3), PackedInt32Array(8, 3, 9), PackedInt32Array(5, 10, 7), PackedInt32Array(7, 10, 9), PackedInt32Array(9, 10, 8), PackedInt32Array(2, 11, 1), PackedInt32Array(1, 11, 12), PackedInt32Array(15, 14, 13), PackedInt32Array(11, 18, 12), PackedInt32Array(12, 18, 16), PackedInt32Array(16, 18, 17), PackedInt32Array(17, 18, 13), PackedInt32Array(13, 18, 8), PackedInt32Array(13, 8, 15), PackedInt32Array(15, 8, 10), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(24, 16, 23), PackedInt32Array(23, 16, 17), PackedInt32Array(26, 25, 14), PackedInt32Array(14, 25, 13), PackedInt32Array(28, 27, 23), PackedInt32Array(23, 27, 24), PackedInt32Array(25, 29, 13), PackedInt32Array(30, 27, 28), PackedInt32Array(28, 13, 30), PackedInt32Array(30, 13, 29), PackedInt32Array(31, 30, 32), PackedInt32Array(32, 30, 29), PackedInt32Array(31, 34, 27), PackedInt32Array(27, 34, 24), PackedInt32Array(24, 34, 33), PackedInt32Array(37, 36, 35), PackedInt32Array(26, 36, 25), PackedInt32Array(25, 36, 37), PackedInt32Array(32, 34, 31), PackedInt32Array(29, 37, 32), PackedInt32Array(32, 37, 35), PackedInt32Array(38, 33, 39), PackedInt32Array(39, 33, 34), PackedInt32Array(40, 35, 41), PackedInt32Array(41, 35, 36), PackedInt32Array(35, 40, 34), PackedInt32Array(34, 40, 39), PackedInt32Array(36, 42, 41)]
+sample_partition_type = 1
+agent_height = 2.0
+agent_radius = 0.25
+agent_max_climb = 0.5
+agent_max_slope = 50.0
+region_min_size = 1.0
+edge_max_length = 5.0
+vertices_per_polygon = 8.0
+detail_sample_distance = 12.04
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
 size = Vector3(20, 1, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3wel"]
+albedo_color = Color(0.5678146, 0.7290625, 0.8992104, 1)
+metallic = 0.15
+metallic_specular = 0.66
+emission_enabled = true
+emission = Color(0.7760541, 0.7760541, 0.776054, 1)
+emission_energy_multiplier = 0.21
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_mrrlb"]
 height = 5.906
@@ -18,14 +36,20 @@ height = 5.906
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gnji1"]
 height = 5.906
 
+[sub_resource type="BoxMesh" id="BoxMesh_mrrlb"]
+size = Vector3(2, 1, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrrlb"]
+size = Vector3(2, 1, 4)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_tpywq"]
-size = Vector3(20, 1, 1)
+size = Vector3(21, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4rkw1"]
-size = Vector3(1, 1, 20)
+size = Vector3(1, 1, 19)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xfk87"]
-size = Vector3(20, 1, 1)
+size = Vector3(21, 1, 1)
 
 [node name="GameScene" type="Node3D" unique_id=585681017]
 
@@ -41,6 +65,7 @@ shape = SubResource("BoxShape3D_3x3eq")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/Floor" unique_id=112626225]
 size = Vector3(20, 1, 20)
+material = SubResource("StandardMaterial3D_s3wel")
 
 [node name="Pillar" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1334986093]
 transform = Transform3D(0.93030715, 0.36678147, 0, -0.36678147, 0.93030715, 0, 0, 0, 1, -5.02505, 1.81427, 0)
@@ -51,12 +76,21 @@ mesh = SubResource("CylinderMesh_mrrlb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Pillar" unique_id=1740174510]
 shape = SubResource("CylinderShape3D_gnji1")
 
+[node name="Ramp" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1222210656]
+transform = Transform3D(0.610471, 0.119025506, -0.783044, 0.06317907, 0.97817564, 0.1979414, 0.7895147, -0.17030948, 0.58962804, 0, 0.43644667, 5.1511054)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ramp" unique_id=1819137493]
+mesh = SubResource("BoxMesh_mrrlb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ramp" unique_id=904978558]
+shape = SubResource("BoxShape3D_mrrlb")
+
 [node name="Player" parent="." unique_id=534980744 instance=ExtResource("1_c7s6e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=298293898]
 transform = Transform3D(-4.371139e-08, -0.70710677, 0.70710677, 0, 0.70710677, 0.70710677, -1, 3.090862e-08, -3.090862e-08, 50, 50, 0)
-light_energy = 0.624
+light_energy = 1.056
 light_indirect_energy = 3.0
 light_volumetric_fog_energy = 5.0
 light_angular_distance = 25.0
@@ -66,7 +100,8 @@ light_specular = 5.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NorthWall" unique_id=975626146]
-size = Vector3(20, 1, 1)
+size = Vector3(21, 1, 1)
+material = ExtResource("3_qbbks")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall" unique_id=327272326]
 shape = SubResource("BoxShape3D_tpywq")
@@ -78,7 +113,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 shape = SubResource("BoxShape3D_4rkw1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=51626220]
-size = Vector3(1, 1, 20)
+size = Vector3(1, 1, 19)
+material = ExtResource("3_qbbks")
 
 [node name="WestWall" type="StaticBody3D" parent="." unique_id=2023942417 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
@@ -87,7 +123,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 shape = SubResource("BoxShape3D_4rkw1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=1816727057]
-size = Vector3(1, 1, 20)
+size = Vector3(1, 1, 19)
+material = ExtResource("3_qbbks")
 
 [node name="SouthWall" type="StaticBody3D" parent="." unique_id=1453454022 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
@@ -96,7 +133,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
 shape = SubResource("BoxShape3D_xfk87")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SouthWall" unique_id=1885570179]
-size = Vector3(20, 1, 1)
+size = Vector3(21, 1, 1)
+material = ExtResource("3_qbbks")
 
 [node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("2_sfwum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
