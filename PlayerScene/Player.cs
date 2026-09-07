@@ -84,16 +84,12 @@ public partial class Player : CharacterBody3D
 	{
 		if (node.IsInGroup("Collectible"))
 		{
-			GD.Print("Hit collectible!");
-
 			node.Visible = false;
 			node.QueueFree();
 
 			GameSignals.Instance.EmitSignal(GameSignals.SignalName.OnHitCollectible);
 			
 		}
-
-		GD.Print("Groups: ", node.GetGroups());
 
 		if (node.IsInGroup("Enemy"))
 		{
