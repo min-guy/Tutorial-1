@@ -6,8 +6,13 @@
 [sub_resource type="SphereMesh" id="SphereMesh_4rkw1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wijl4"]
-albedo_color = Color(0.50980395, 0.50980395, 0.50980395, 1)
-roughness = 0.75
+albedo_color = Color(0.26896, 0.50003654, 0.8765294, 1)
+metallic = 0.36
+metallic_specular = 0.76
+roughness = 0.68
+rim_enabled = true
+rim = 0.7
+rim_tint = 0.41
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3x3eq"]
 
