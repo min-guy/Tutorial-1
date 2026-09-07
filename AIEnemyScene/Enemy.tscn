@@ -1,3 +1,20 @@
 [gd_scene format=3 uid="uid://c25ay6wm3y54p"]
 
-[node name="Node3D" type="Node3D" unique_id=1834754588]
+[ext_resource type="Script" uid="uid://s5ngybxqs0j0" path="res://AIEnemyScene/Enemy.cs" id="1_51xhc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x3eq"]
+size = Vector3(1, 2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
+size = Vector3(1, 2, 1)
+
+[node name="Enemy" type="CharacterBody3D" unique_id=640753918]
+script = ExtResource("1_51xhc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=537670922]
+mesh = SubResource("BoxMesh_3x3eq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1392717472]
+shape = SubResource("BoxShape3D_3x3eq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1275301084]

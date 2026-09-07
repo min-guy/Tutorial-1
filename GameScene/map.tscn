@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ddr3rqs1fho6j" path="res://UIScene/Counter.tscn" id="1_6rb1g"]
 [ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://PlayerScene/player.tscn" id="1_c7s6e"]
 [ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://CollectibleScene/collectible.tscn" id="2_sfwum"]
+[ext_resource type="PackedScene" uid="uid://c25ay6wm3y54p" path="res://AIEnemyScene/Enemy.tscn" id="4_fgrul"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_waroo"]
 vertices = PackedVector3Array(-9.5, 0.88368225, 0, -6.5, 0.88368225, 0, -6.25, 0.88368225, -1, -9.5, 0.88368225, -9.5, -4, 0.88368225, -1, 9.5, 0.88368225, 0, 9.5, 0.88368225, -9.5, -3.75, 0.88368225, 0, -6.25, 0.88368225, 1, -9.5, 0.88368225, 9.5, -4, 0.88368225, 1, 9.5, 0.88368225, 9.5)
@@ -99,3 +100,6 @@ size = Vector3(20, 1, 1)
 
 [node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("2_sfwum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
+
+[node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") instance=ExtResource("4_fgrul")]
+player = NodePath("../Player")
