@@ -31,6 +31,8 @@ project/assembly_name="Tutorial"
 [global_group]
 
 Collectible="it is a collectible"
+Player="the player"
+Enemy="my enemy"
 
 [physics]
 

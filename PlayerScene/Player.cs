@@ -62,19 +62,42 @@ public partial class Player : CharacterBody3D
 
 	private void OnWin()
 	{
+		win_msg.Text = "You Win!";
 		win_msg.Visible = true;
+	}
+
+	private void OnLose()
+	{
+		win_msg.Text = "You Lose!";
+		win_msg.Visible = true;
+
+		Node3D mesh = GetNode<Node3D>(new NodePath("MeshInstance3D"));
+		mesh.Visible = false;
+
+		// Disable all relevant methods for the player.
+		SetProcessInput(false);
+		SetProcess(false);
+		SetPhysicsProcess(false);
 	}
 
 	private void OnBodyEntered(Node3D node)
 	{
-		// Exit earlier if not collectible
-		if (!node.IsInGroup("Collectible")) return;
+		if (node.IsInGroup("Collectible"))
+		{
+			GD.Print("Hit collectible!");
 
-		GD.Print("Hit collectible!");
+			node.Visible = false;
+			node.QueueFree();
 
-		node.Visible = false;
-		node.QueueFree();
+			GameSignals.Instance.EmitSignal(GameSignals.SignalName.OnHitCollectible);
+			
+		}
 
-		GameSignals.Instance.EmitSignal(GameSignals.SignalName.OnHitCollectible);
+		GD.Print("Groups: ", node.GetGroups());
+
+		if (node.IsInGroup("Enemy"))
+		{
+			OnLose();	
+		}
 	}
 }

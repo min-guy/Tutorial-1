@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 public partial class Enemy : CharacterBody3D
 {
-	public const float Speed = 5.0f;
+	public const float Speed = 2.5f;
 	public const float JumpVelocity = 4.5f;
 
 	private NavigationAgent3D navAgent;
@@ -30,14 +30,7 @@ public partial class Enemy : CharacterBody3D
 			velocity += GetGravity() * (float)delta;
 		}
 
-		// // Handle Jump.
-		// if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
-		// {
-		// 	velocity.Y = JumpVelocity;
-		// }
-
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
+		// Get direction to move in based on where the navagent decides to go next.
 		Vector3 direction = (navAgent.GetNextPathPosition() - this.Position).Normalized();
 		if (direction != Vector3.Zero)
 		{

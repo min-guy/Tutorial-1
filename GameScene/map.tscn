@@ -101,5 +101,6 @@ size = Vector3(20, 1, 1)
 [node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("2_sfwum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 
-[node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") instance=ExtResource("4_fgrul")]
+[node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") groups=["Enemy"] instance=ExtResource("4_fgrul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8711157, 1.9321887, 3.940319)
 player = NodePath("../Player")
