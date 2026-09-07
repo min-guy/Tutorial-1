@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5h77c6oq7xjr"]
 
 [ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://PlayerScene/player.tscn" id="1_c7s6e"]
+[ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://CollectibleScene/collectible.tscn" id="2_sfwum"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3x3eq"]
 size = Vector3(20, 1, 20)
@@ -35,7 +36,7 @@ light_volumetric_fog_energy = 5.0
 light_angular_distance = 25.0
 light_specular = 5.0
 
-[node name="NorthWall" type="StaticBody3D" parent="." unique_id=937100690]
+[node name="NorthWall" type="StaticBody3D" parent="." unique_id=937100690 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NorthWall" unique_id=975626146]
@@ -44,7 +45,7 @@ size = Vector3(20, 1, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall" unique_id=327272326]
 shape = SubResource("BoxShape3D_tpywq")
 
-[node name="EastWall" type="StaticBody3D" parent="." unique_id=1776997372]
+[node name="EastWall" type="StaticBody3D" parent="." unique_id=1776997372 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EastWall" unique_id=2126627985]
@@ -53,7 +54,7 @@ shape = SubResource("BoxShape3D_4rkw1")
 [node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=51626220]
 size = Vector3(1, 1, 20)
 
-[node name="WestWall" type="StaticBody3D" parent="." unique_id=2023942417]
+[node name="WestWall" type="StaticBody3D" parent="." unique_id=2023942417 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WestWall" unique_id=1996526310]
@@ -62,7 +63,7 @@ shape = SubResource("BoxShape3D_4rkw1")
 [node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=1816727057]
 size = Vector3(1, 1, 20)
 
-[node name="SouthWall" type="StaticBody3D" parent="." unique_id=1453454022]
+[node name="SouthWall" type="StaticBody3D" parent="." unique_id=1453454022 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SouthWall" unique_id=161805584]
@@ -70,3 +71,6 @@ shape = SubResource("BoxShape3D_xfk87")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SouthWall" unique_id=1885570179]
 size = Vector3(20, 1, 1)
+
+[node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("2_sfwum")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
