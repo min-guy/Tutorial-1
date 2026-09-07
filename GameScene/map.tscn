@@ -18,7 +18,8 @@ size = Vector3(20, 1, 1)
 
 [node name="GameScene" type="Node3D" unique_id=585681017]
 
-[node name="Control" parent="." unique_id=905788983 instance=ExtResource("1_6rb1g")]
+[node name="Control" parent="." unique_id=905788983 node_paths=PackedStringArray("player") instance=ExtResource("1_6rb1g")]
+player = NodePath("../Player")
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=1217775058]
 
