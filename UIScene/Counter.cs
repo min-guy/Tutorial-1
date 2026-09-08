@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using System.Net.Security;
 
 public partial class Counter : CanvasLayer
 {
@@ -15,11 +13,16 @@ public partial class Counter : CanvasLayer
 		counter = GetNode<Label>(new NodePath("Counter"));
 		counter.Text = "Count: " + count; // initial count
 		
-		GameSignals.Instance.Connect(GameSignals.SignalName.OnHitCollectible, Callable.From(IncreaseCounter));
+		GameSignals.Instance.OnHitCollectible += IncreaseCounter;
 	}
 
-	private void IncreaseCounter()
+	private void IncreaseCounter(Node3D _, Node3D collectible)
 	{
+		// Hide the node and then remove it from the scene.
+		collectible.Visible = false;
+		collectible.QueueFree();
+		
+		// Simply increment the count and display it.
 		count ++;
 		counter.Text = "Count: " + count;
 	}

@@ -1,7 +1,4 @@
 using Godot;
-using System;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 
 public partial class Enemy : CharacterBody3D
 {
@@ -45,6 +42,18 @@ public partial class Enemy : CharacterBody3D
 
 		Velocity = velocity;
 
-		MoveAndSlide();
+		// Move and slide, but also check if we collided with anything. 
+		// 
+		// If we did, then start to check what to see exactly what it was. 
+		if (MoveAndSlide())
+		{
+			// Gets the GodotObject that last collided with this "enemy" in this frame.
+			var obj = GetLastSlideCollision().GetCollider();
+
+			if (obj is Player player)
+			{
+				GameSignals.Instance.EmitSignal(GameSignals.SignalName.GameLose);
+			}
+		}
 	}
 }
