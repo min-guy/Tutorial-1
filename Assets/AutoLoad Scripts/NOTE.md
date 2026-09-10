@@ -1,0 +1,1 @@
+In Godot, an "Autoload" is akin to Unity's "DontDestroyOnLoad" Singletons. Except, they're just scripts that you pass into project settings to let the engine load it automatically, and globally, as soon ad the game starts. 

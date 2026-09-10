@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckhvrjm8fgasq"]
 
-[ext_resource type="Script" uid="uid://bf3bt6f2n0i1" path="res://CollectibleScene/Collectible.cs" id="1_jxrci"]
+[ext_resource type="Script" uid="uid://bf3bt6f2n0i1" path="res://Assets/Scripts/Collectible.cs" id="1_jxrci"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gnji1"]
 

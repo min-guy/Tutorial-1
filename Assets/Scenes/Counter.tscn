@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ddr3rqs1fho6j"]
 
-[ext_resource type="Script" uid="uid://cbun3xx0ji7md" path="res://UIScene/Counter.cs" id="1_2xb2g"]
+[ext_resource type="Script" uid="uid://cbun3xx0ji7md" path="res://Assets/Scripts/Counter.cs" id="1_2xb2g"]
 
 [node name="Counter" type="CanvasLayer" unique_id=1175682423]
 script = ExtResource("1_2xb2g")

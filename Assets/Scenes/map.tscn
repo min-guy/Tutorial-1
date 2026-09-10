@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c5h77c6oq7xjr"]
 
-[ext_resource type="PackedScene" uid="uid://ddr3rqs1fho6j" path="res://UIScene/Counter.tscn" id="1_6rb1g"]
-[ext_resource type="Script" uid="uid://ytcgnj4uxrxj" path="res://GameScene/GameMap.cs" id="1_10isb"]
-[ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://PlayerScene/player.tscn" id="1_c7s6e"]
-[ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://CollectibleScene/collectible.tscn" id="2_sfwum"]
-[ext_resource type="Material" uid="uid://2jbwjxjxwtxu" path="res://GameScene/wall_material.tres" id="3_qbbks"]
-[ext_resource type="PackedScene" uid="uid://c25ay6wm3y54p" path="res://AIEnemyScene/Enemy.tscn" id="4_fgrul"]
+[ext_resource type="Script" uid="uid://ytcgnj4uxrxj" path="res://Assets/Scripts/GameMap.cs" id="1_yq1se"]
+[ext_resource type="PackedScene" uid="uid://ddr3rqs1fho6j" path="res://Assets/Scenes/Counter.tscn" id="2_gup1m"]
+[ext_resource type="PackedScene" uid="uid://f2t1f8onwwas" path="res://Assets/Scenes/player.tscn" id="3_05ck3"]
+[ext_resource type="Material" uid="uid://2jbwjxjxwtxu" path="res://Assets/Materials/wall_material.tres" id="4_fblcn"]
+[ext_resource type="PackedScene" uid="uid://ckhvrjm8fgasq" path="res://Assets/Scenes/collectible.tscn" id="5_al7xy"]
+[ext_resource type="PackedScene" uid="uid://c25ay6wm3y54p" path="res://Assets/Scenes/Enemy.tscn" id="6_w3lni"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_waroo"]
 vertices = PackedVector3Array(-9.75, 0.88368225, -5.25, -9.75, 0.88368225, -0.75, -6, 0.88368225, -0.75, -5, 0.88368225, -9.75, -9.75, 0.88368225, -9.75, 9.75, 0.88368225, -5.25, 9.75, 0.88368225, -9.75, 4.75, 0.88368225, -9.75, -4, 0.88368225, -0.75, 0, 0.88368225, -9.75, 9.75, 0.88368225, -0.75, -6, 0.88368225, 0.75, -9.75, 0.88368225, 2, -1.75, 1.3836823, 4.75, 9.75, 0.88368225, 4.75, 9.75, 0.88368225, 2, -9.75, 0.88368225, 4.75, -2, 0.88368225, 4.75, -4, 0.88368225, 0.75, -4.25, 5.1336823, -0.25, -4.25, 5.1336823, 0.25, -3.5, 4.8836823, 0.25, -3.5, 4.8836823, -0.25, -2.5, 0.88368225, 5.75, -9.75, 0.88368225, 6.25, 0.5, 1.3836823, 6.25, 9.75, 0.88368225, 6.25, -2, 1.3836823, 6.25, -2, 1.6336823, 5.75, 0, 1.6336823, 6.25, -1.5, 1.6336823, 6.25, -1.25, 1.6336823, 6.75, -0.5, 1.6336823, 6.75, -9.75, 0.88368225, 7.5, -1, 0.88368225, 7.5, -0.75, 0.88368225, 7.5, 9.75, 0.88368225, 7.5, -0.25, 1.3836823, 7, -9.75, 0.88368225, 9.75, -5, 0.88368225, 9.75, 0, 0.88368225, 9.75, 4.75, 0.88368225, 9.75, 9.75, 0.88368225, 9.75)
@@ -54,9 +54,9 @@ size = Vector3(1, 1, 19)
 size = Vector3(21, 1, 1)
 
 [node name="GameScene" type="Node3D" unique_id=585681017]
-script = ExtResource("1_10isb")
+script = ExtResource("1_yq1se")
 
-[node name="Control" parent="." unique_id=905788983 instance=ExtResource("1_6rb1g")]
+[node name="Control" parent="." unique_id=905788983 instance=ExtResource("2_gup1m")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1951427355]
 navigation_mesh = SubResource("NavigationMesh_waroo")
@@ -88,7 +88,7 @@ mesh = SubResource("BoxMesh_mrrlb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ramp" unique_id=904978558]
 shape = SubResource("BoxShape3D_mrrlb")
 
-[node name="Player" parent="." unique_id=534980744 instance=ExtResource("1_c7s6e")]
+[node name="Player" parent="." unique_id=534980744 instance=ExtResource("3_05ck3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=298293898]
@@ -108,7 +108,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -10)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NorthWall" unique_id=975626146]
 size = Vector3(21, 1, 1)
-material = ExtResource("3_qbbks")
+material = ExtResource("4_fblcn")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NorthWall" unique_id=327272326]
 shape = SubResource("BoxShape3D_tpywq")
@@ -121,7 +121,7 @@ shape = SubResource("BoxShape3D_4rkw1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="EastWall" unique_id=51626220]
 size = Vector3(1, 1, 19)
-material = ExtResource("3_qbbks")
+material = ExtResource("4_fblcn")
 
 [node name="WestWall" type="StaticBody3D" parent="." unique_id=2023942417 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0)
@@ -131,7 +131,7 @@ shape = SubResource("BoxShape3D_4rkw1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="WestWall" unique_id=1816727057]
 size = Vector3(1, 1, 19)
-material = ExtResource("3_qbbks")
+material = ExtResource("4_fblcn")
 
 [node name="SouthWall" type="StaticBody3D" parent="." unique_id=1453454022 groups=["Wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10)
@@ -141,11 +141,11 @@ shape = SubResource("BoxShape3D_xfk87")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="SouthWall" unique_id=1885570179]
 size = Vector3(21, 1, 1)
-material = ExtResource("3_qbbks")
+material = ExtResource("4_fblcn")
 
-[node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("2_sfwum")]
+[node name="Collectible" parent="." unique_id=1785106663 instance=ExtResource("5_al7xy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 
-[node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") groups=["Enemy"] instance=ExtResource("4_fgrul")]
+[node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") groups=["Enemy"] instance=ExtResource("6_w3lni")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8711157, 1.9321887, 3.940319)
 player = NodePath("../Player")
