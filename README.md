@@ -10,7 +10,7 @@ Original Unity-based instructions:
 Godot equivalents:
 - `Build/Windows` contains the Windows executable along with a `.pck` file (which contains the game's assets).
 - `Build/Mac` contains the Mac app.
-- `Assets` contains all scene and script data (although it's actually needed in Godot, we just organized it this way for familarity sake).
+- `Assets` contains all scene and script data (although it's actually not needed in Godot, as everything in the project folder is considered "Assets", we just organized it this way for familarity sake).
 - `project.godot` is the equivalent to `ProjectSettings` folder in Unity.
 - an `addons` folder would be the cloest equivalent to Unity's `Packages` folder. However, since we didn't use any plugins or addons, it doesn't exist here.
  
