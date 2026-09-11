@@ -1,5 +1,9 @@
 Tutorial 1 done with Godot
 
+Controls:
+- Arrow keys for movement
+- Space bar for jumping
+
 Original Unity-based instructions:
 - One Windows executable  (.exe, with _Data folder, UnityPlayer.dll, and Mono or MonoBleedingEdge folder next to it) of your completed tutorial project.
 - One Mac executable (.app) of your completed tutorial project. If you are having trouble running it, try these suggested fixes.
