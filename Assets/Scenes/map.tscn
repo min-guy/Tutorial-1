@@ -167,5 +167,6 @@ material = ExtResource("4_fblcn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 0)
 
 [node name="Enemy" parent="." unique_id=640753918 node_paths=PackedStringArray("player") groups=["Enemy"] instance=ExtResource("6_w3lni")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8711157, 1.9321887, 3.940319)
 player = NodePath("../Player")

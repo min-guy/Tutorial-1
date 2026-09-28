@@ -1,16 +1,28 @@
 using Godot;
 
-public partial class Player : CharacterBody3D
+public partial class Player : RigidBody3D
 {
 	public const float Speed = 5.0f;
 	public const float JumpVelocity = 4.5f;
+
+	ICommand leftKey;
+	ICommand rightKey;
+	ICommand forwardKey;
+	ICommand backwardKey;
+
+	[Export] MovementComponent moveComp;
 
 	private Label3D win_msg;
 
 	public override void _Ready()
 	{
 		win_msg = GetNode<Label3D>(new NodePath("WinMsg"));
-		win_msg.Visible = false;	
+		win_msg.Visible = false;
+
+		leftKey = new MoveCommand(new(-1, 0, 0), moveComp);
+		rightKey = new MoveCommand(new(1, 0, 0), moveComp);
+		forwardKey = new MoveCommand(new(0, 0, -1), moveComp);
+		backwardKey = new MoveCommand(new(0, 0, 1), moveComp);
 
 		GameSignals.Instance.GameWin += OnWin;
 		GameSignals.Instance.GameLose += OnLose;
@@ -19,6 +31,7 @@ public partial class Player : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		// Cloning velocity so we can perform compontent-wise operations (such as assigning to .X, .Y, .Z on it).
+		/*
 		Vector3 velocity = Velocity;
 
 		// Add the gravity.
@@ -33,10 +46,19 @@ public partial class Player : CharacterBody3D
 			velocity.Y = JumpVelocity;
 		}
 
+		*/
+
+		if (Input.IsActionPressed("ui_left")) leftKey.Execute();
+		if (Input.IsActionPressed("ui_right")) rightKey.Execute();
+		if (Input.IsActionPressed("ui_up")) forwardKey.Execute();
+		if (Input.IsActionPressed("ui_down")) backwardKey.Execute();
+
+
 		// Get the input direction and handle the movement/deceleration.
+		/*
 		Vector2 inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		
+
 		if (direction != Vector3.Zero)
 		{
 			velocity.X = direction.X * Speed;
@@ -49,13 +71,14 @@ public partial class Player : CharacterBody3D
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, Speed);
 		}
-
+	
 		// Apply our newly calculated velcoity to the internal "Velocity" field of the CharacterBody3D. 
 		// This tells Godot's built-in method for this physics body how to move for this physics frame.
 		Velocity = velocity;
+		*/
 
 		// Perform the physics calculation, moving and sliding the character body forward.
-		MoveAndSlide();
+		// MoveAndSlide();
 	}
 
 	private void OnWin()

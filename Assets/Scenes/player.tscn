@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://u81b3xp3usae" path="res://Assets/Scripts/Player.cs" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://p1jk1rq0xntr" path="res://Assets/Scripts/CameraController.cs" id="2_2qdwb"]
+[ext_resource type="Script" uid="uid://810go6sfk23" path="res://Assets/Scripts/MovementComponent.cs" id="3_38rej"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_4rkw1"]
 
@@ -16,9 +17,10 @@ rim_tint = 0.41
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_3x3eq"]
 
-[node name="Player" type="CharacterBody3D" unique_id=534980744 groups=["CanCollect", "Player"]]
+[node name="Player" type="RigidBody3D" unique_id=1772620809 node_paths=PackedStringArray("moveComp") groups=["CanCollect", "Player"]]
 collision_mask = 3
 script = ExtResource("1_4flbx")
+moveComp = NodePath("MovementComponent")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=416577086]
 mesh = SubResource("SphereMesh_4rkw1")
@@ -29,6 +31,7 @@ shape = SubResource("SphereShape3D_3x3eq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1746351804]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 5)
+current = true
 script = ExtResource("2_2qdwb")
 
 [node name="WinMsg" type="Label3D" parent="." unique_id=720339455]
@@ -37,3 +40,9 @@ modulate = Color(0, 0, 0, 1)
 outline_modulate = Color(1, 1, 1, 1)
 text = "You Win!"
 font_size = 64
+
+[node name="MovementComponent" type="Node" parent="." unique_id=977623534 node_paths=PackedStringArray("rb")]
+script = ExtResource("3_38rej")
+speed = 30.0
+rb = NodePath("..")
+metadata/_custom_type_script = "uid://810go6sfk23"

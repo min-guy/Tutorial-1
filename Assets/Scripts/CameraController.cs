@@ -3,14 +3,14 @@ using Godot;
 public partial class CameraController : Camera3D
 {
 	// Class Variables/Refereces
-	public CharacterBody3D player;
+	public RigidBody3D player;
 	private Vector3 offset;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		player = GetNode<CharacterBody3D>(new NodePath(".."));
-		
+		player = GetNode<RigidBody3D>(new NodePath(".."));
+
 		offset = this.Position - player.Position;
 	}
 
